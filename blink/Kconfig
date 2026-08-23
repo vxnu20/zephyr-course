@@ -1,0 +1,9 @@
+mainmenu "FRDM-MCXN236 Custom Blink App"
+
+source "Kconfig.zephyr"
+
+config APP_BLINK_DELAY_MS
+    int "LED Blink delay in milliseconds"
+    default 200
+    help
+      Time in milliseconds between LED state toggles.

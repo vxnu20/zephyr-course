@@ -1,0 +1,26 @@
+/ {
+    aliases {
+        red-led = &board_red_led;
+        green-led = &board_green_led;
+        blue-led = &board_blue_led;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        
+        board_red_led: led_0 {
+            gpios = <&gpio4 18 GPIO_ACTIVE_HIGH>; 
+            label = "Custom Blinking LED";
+        };
+
+        board_green_led: led_1 {
+            gpios = <&gpio4 19 GPIO_ACTIVE_HIGH>; 
+            label = "Custom Blinking LED";
+        };
+
+        board_blue_led: led_2 {
+            gpios = <&gpio4 17 GPIO_ACTIVE_HIGH>; 
+            label = "Custom Blinking LED";
+        };
+    };
+};
