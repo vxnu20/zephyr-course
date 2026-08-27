@@ -1,0 +1,3 @@
+- Build - `west build -b frdm_mcxn236 -p auto`
+- Clean Build - `west build -b frdm_mcxn236 -p always`
+- Open Kconfig - `west build -b frdm_mcxn236 -p always -t menuconfig`

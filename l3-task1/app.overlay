@@ -1,0 +1,47 @@
+#include <nxp/mcx/MCXN236VDF-pinctrl.h>
+
+/ {
+    aliases {
+        red-led = &board_red_led;
+        green-led = &board_green_led;
+        blue-led = &board_blue_led;
+        pwm0 = &ctimer3;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+
+        board_red_led: led_0 {
+            gpios = <&gpio4 18 GPIO_ACTIVE_HIGH>;
+            label = "Custom Blinking LED";
+        };
+
+        board_green_led: led_1 {
+            gpios = <&gpio4 19 GPIO_ACTIVE_HIGH>;
+            label = "Custom Blinking LED";
+        };
+
+        board_blue_led: led_2 {
+            status = "disabled";
+            gpios = <&gpio4 17 GPIO_ACTIVE_HIGH>;
+            label = "Custom Blinking LED";
+        };
+    };
+};
+
+&pinctrl {
+    ctimer3_pwm_default: ctimer3_pwm_default {
+        group1 {
+            pinmux = <CT3_MAT1_PIO4_17>;
+            slew-rate = "fast";
+            drive-strength = "low";
+        };
+    };
+};
+
+&ctimer3 {
+    status = "okay";
+    pinctrl-0 = <&ctimer3_pwm_default>;
+    pinctrl-names = "default";
+    #pwm-cells = <3>;
+};
