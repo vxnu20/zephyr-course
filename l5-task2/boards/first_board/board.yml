@@ -1,0 +1,6 @@
+board:
+  name: first_board
+  full_name: FIRST-BOARD
+  vendor: vishnu
+  socs:
+  - name: mcxn236
